@@ -1,0 +1,18 @@
+@import "./../../style/main.scss";
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid $border-color;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    .icon {
+        svg {
+            width: 55px;
+        }
+    }
+}

@@ -1,15 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+import { DailyDataContext } from "../../store/DailyDataContext";
 import "./location.scss";
 
 function Location() {
 
     const [location, setLocation] = useState({latitude:null, longitude:null});
+    const { setDailyData } = useContext(DailyDataContext);
+
+    useEffect(() => {
+        const axios = require('axios');
+
+        axios.get(`/api/location?lat=${location.latitude}&long=${location.longitude}`)
+        .then( response => {
+            console.log(response);
+            localStorage.setItem('location', JSON.stringify(location));
+            setDailyData({data:response.data})
+        })
+        .catch( error => {
+            console.log(error);
+        })
+        
+    }, [location])
 
     const getLocation = () => {
-        console.log("hi")
+
        if (navigator.geolocation) {
              navigator.geolocation.getCurrentPosition(success);
-             console.log(navigator.geolocation);
        }
        else {
            console.log("error")
@@ -17,9 +33,7 @@ function Location() {
     }
 
     const success = (position) => {
-        console.log(position)
         setLocation({latitude: position.coords.latitude, longitude:position.coords.longitude});
-        console.log(location);
     }    
 
     return(

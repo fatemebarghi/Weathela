@@ -1,0 +1,77 @@
+@import "../../style/main.scss";
+
+.home-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: $primary-blue;
+
+    .wave {
+        position: absolute;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .weather-pic {
+        padding: 35px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            width: 95px;
+        }
+    }
+
+    .info {
+        text-align: center;
+        font-family: IranSans, serif;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        bottom: 30%;
+
+        .city-name {
+            color: $second-text-color;
+            font-size: 38px;
+            font-weight: 600;
+        }
+
+        .date {
+            font-size: 17px;
+            margin-top: 5px;
+            font-weight: 600;
+
+            .day,
+            .month {
+                padding: 0 10px;
+            }
+
+            .day {
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 5px;
+                    width: 1px;
+                    height: 16px;
+                    background-color: $border-color;
+                }
+            }
+        }
+
+        .weather {
+            font-size: 17px;
+            font-weight: 600;
+
+            .icon-up,
+            .icon-down {
+                text-align: left;
+                font-size: 14px;
+                position: relative;
+            }
+        }
+    }
+}

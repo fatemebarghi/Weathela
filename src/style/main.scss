@@ -1,5 +1,9 @@
 @import "./variables.scss";
+@import "./font-icons.scss";
+@import "./fonts.scss";
 
 body {
     margin: 0;
+    font-family: IranSans,serif;
+    overflow: hidden;
 }

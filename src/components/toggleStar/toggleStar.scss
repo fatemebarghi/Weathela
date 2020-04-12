@@ -1,0 +1,15 @@
+@import "../../style/main.scss";
+
+.wrapper {
+    width: 75px;
+    height: 88px;
+    background-color: $white;
+    border-radius: 0 0 14px 14px;
+    float: right;
+    margin-right: 40px;
+    display: flex;
+    justify-content: center;
+    svg {
+        width: 42px;
+    }
+}

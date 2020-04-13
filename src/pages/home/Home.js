@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import "./home.scss";
 import { DailyDataContext } from "../../store/DailyDataContext"
 import ToggleStar from "./../../components/toggleStar/ToggleStar";
@@ -22,12 +22,29 @@ function Home() {
     // };
 
     const [dailyData, setDailyData] = useState({data:{}})
-    const ActiveCity= localStorage.getItem("location");
+    let location = JSON.parse(localStorage.getItem("location"));
+    
+    useEffect (() => {
+        // const axios = require('axios');
+
+        // axios.get(`/api/location?lat=${location.latitude}&long=${location.longitude}`)
+        // .then( response => {
+        //     console.log("in the home",response.data.locationData.county);
+        //     setDailyData({data:response.data})
+        // })
+        // .catch( error => {
+        //     console.log(error);
+        // })
+
+        // console.log(location);
+        
+    });
 
     return (
         <DailyDataContext.Provider value={{dailyData, setDailyData}}>
             <React.Fragment>
-                {ActiveCity ? <div className="home-page">
+
+                {location ? <div className="home-page">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 689" className="wave">
                       <g id="Layer_2" data-name="Layer 2">
                         <g id="HomeScreen">
@@ -41,7 +58,7 @@ function Home() {
                     <ToggleStar/>
 
                     <div className="info">
-                        <span className="city-name">خمین</span>
+                        <span className="city-name"></span>
                         <div className="date">
                             <span className="day">سه‌شنبه</span>
                             <span className="month">۸ خرداد</span>
@@ -49,7 +66,7 @@ function Home() {
                         <div className="weather">
                             <span className="title">آسمان صاف</span>
                             <span className="icon-down"></span>
-                            <span className="min-temp">۲۱</span>
+                            <span className="min-temp"></span>
                             <span className="icon-up"></span>
                             <span className="max-temp">۳۴</span>
                         </div>

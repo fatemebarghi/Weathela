@@ -4,12 +4,11 @@ import "./location.scss";
 
 function Location() {
 
-    const [location, setLocation] = useState({latitude:null, longitude:null});
+    const [location, setLocation] = useState({latitude:'', longitude:''});
     const { setDailyData } = useContext(DailyDataContext);
 
     useEffect(() => {
         const axios = require('axios');
-
         axios.get(`/api/location?lat=${location.latitude}&long=${location.longitude}`)
         .then( response => {
             console.log(response);
@@ -19,7 +18,6 @@ function Location() {
         .catch( error => {
             console.log(error);
         })
-        
     }, [location])
 
     const getLocation = () => {
@@ -33,7 +31,7 @@ function Location() {
     }
 
     const success = (position) => {
-        setLocation({latitude: position.coords.latitude, longitude:position.coords.longitude});
+        setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
     }    
 
     return(

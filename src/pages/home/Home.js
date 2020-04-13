@@ -21,30 +21,35 @@ function Home() {
     //         });
     // };
 
-    const [dailyData, setDailyData] = useState({data:{}})
-    let location = JSON.parse(localStorage.getItem("location"));
+    const [dailyData, setDailyData] = useState({data:{}});
+    const [location, setLocation] = useState({latitude:null, longitude:null});
     
     useEffect (() => {
-        // const axios = require('axios');
-
-        // axios.get(`/api/location?lat=${location.latitude}&long=${location.longitude}`)
-        // .then( response => {
-        //     console.log("in the home",response.data.locationData.county);
-        //     setDailyData({data:response.data})
-        // })
-        // .catch( error => {
-        //     console.log(error);
-        // })
-
-        // console.log(location);
-        
-    });
+        console.log(location);
+        if(location.latitude && location.longitude) {
+            const axios = require('axios');
+            axios.get(`/api/location?lat=${location.latitude}&long=${location.longitude}`)
+            .then( response => {
+                console.log("in the home",response.data);
+                localStorage.setItem('location', JSON.stringify(location));
+                setDailyData({data:response.data});
+            })
+            .catch( error => {
+                console.log(error);
+            })
+        }
+    },[location]);
+ 
+   const handleChange = (result) => {
+            setLocation({latitude: result.latitude, longitude: result.longitude});
+       
+   }
 
     return (
         <DailyDataContext.Provider value={{dailyData, setDailyData}}>
             <React.Fragment>
 
-                {location ? <div className="home-page">
+                {localStorage.getItem("location") ? <div className="home-page">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 689" className="wave">
                       <g id="Layer_2" data-name="Layer 2">
                         <g id="HomeScreen">
@@ -56,9 +61,9 @@ function Home() {
                     </svg>
 
                     <ToggleStar/>
-
+                    {console.log(dailyData)}
                     <div className="info">
-                        <span className="city-name"></span>
+                        <span className="city-name">{dailyData.data.locationData.county}</span>
                         <div className="date">
                             <span className="day">سه‌شنبه</span>
                             <span className="month">۸ خرداد</span>
@@ -72,7 +77,7 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                : <Location/>}
+                : <Location setLocation={setLocation} location={location} onChange={handleChange} />}
             </React.Fragment>
         </DailyDataContext.Provider>
     )

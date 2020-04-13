@@ -1,38 +1,26 @@
-import React, {useState, useEffect, useContext} from 'react';
-import { DailyDataContext } from "../../store/DailyDataContext";
+import React, {useState, useEffect} from 'react';
 import "./location.scss";
 
-function Location() {
+function Location(props) {
 
-    const [location, setLocation] = useState({latitude:'', longitude:''});
-    const { setDailyData } = useContext(DailyDataContext);
-
-    useEffect(() => {
-        const axios = require('axios');
-        axios.get(`/api/location?lat=${location.latitude}&long=${location.longitude}`)
-        .then( response => {
-            console.log(response);
-            localStorage.setItem('location', JSON.stringify(location));
-            setDailyData({data:response.data})
-        })
-        .catch( error => {
-            console.log(error);
-        })
-    }, [location])
+    const [location, setLocation] = useState(props);
 
     const getLocation = () => {
-
        if (navigator.geolocation) {
              navigator.geolocation.getCurrentPosition(success);
        }
        else {
-           console.log("error")
+           console.log("error in location component");
        }
-    }
+    };
 
     const success = (position) => {
         setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
-    }    
+    };
+
+    useEffect(() => {
+        props.onChange(location);
+    },[location]);
 
     return(
         <div className="location">

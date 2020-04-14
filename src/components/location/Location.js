@@ -3,7 +3,7 @@ import "./location.scss";
 
 function Location(props) {
 
-    const [location, setLocation] = useState(props);
+    // const [location, setLocation] = useState(props);
 
     const getLocation = () => {
        if (navigator.geolocation) {
@@ -15,12 +15,12 @@ function Location(props) {
     };
 
     const success = (position) => {
-        setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
+        props.setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
     };
 
-    useEffect(() => {
-        props.onChange(location);
-    },[location]);
+    // useEffect(() => {
+    //     props.onChange(location);
+    // },[location]);
 
     return(
         <div className="location">

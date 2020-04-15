@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import "./location.scss";
 
 function Location(props) {
-
-    // const [location, setLocation] = useState(props);
 
     const getLocation = () => {
        if (navigator.geolocation) {
@@ -17,10 +15,6 @@ function Location(props) {
     const success = (position) => {
         props.setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
     };
-
-    // useEffect(() => {
-    //     props.onChange(location);
-    // },[location]);
 
     return(
         <div className="location">

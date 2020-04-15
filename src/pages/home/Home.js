@@ -3,6 +3,10 @@ import "./home.scss";
 import { DailyDataContext } from "../../store/DailyDataContext"
 import ToggleStar from "./../../components/toggleStar/ToggleStar";
 import Location from './../../components/location/Location';
+import WeatherIcon from './../../components/weatherIcon/WeatherIcon';
+import City from '../../components/city/City';
+import WeatherTitle from '../../components/weatherTitle/WeatherTitle';
+import  persianDate  from 'persian-date';
 
 function Home() {
 
@@ -23,9 +27,8 @@ function Home() {
 
     const [dailyData, setDailyData] = useState(null);
     const [location, setLocation] = useState(JSON.parse(localStorage.getItem("location")));
-    
+
     useEffect (() => {
-        console.log(location);
         if(location) {
             const axios = require('axios');
             axios.get(`/api/location?lat=${location.latitude}&long=${location.longitude}`)
@@ -41,8 +44,7 @@ function Home() {
     },[location]);
  
    const handleChange = (result) => {
-            setLocation({latitude: result.latitude, longitude: result.longitude});
-       
+        setLocation({latitude: result.latitude, longitude: result.longitude});
    };
 
     return (
@@ -62,19 +64,20 @@ function Home() {
                                         </g>
                                     </svg>
                                     <ToggleStar/>
-                                    {console.log(dailyData)}
+                                    <WeatherIcon weather={dailyData.data.weatherData.icon}/>
+                                    <City province={dailyData.data.locationData.province}/>
                                     <div className="info">
                                         <span className="city-name">{dailyData.data.locationData.county}</span>
                                         <div className="date">
                                             <span className="day">سه‌شنبه</span>
-                                            <span className="month">۸ خرداد</span>
+                                            <span className="month"></span>
                                         </div>
                                         <div className="weather">
-                                            <span className="title">آسمان صاف</span>
+                                            <WeatherTitle title={dailyData.data.weatherData.icon}/>
                                             <span className="icon-down"></span>
-                                            <span className="min-temp"></span>
+                                            <span className="min-temp">{Math.round(dailyData.data.weatherData.lowestTemp)}</span>
                                             <span className="icon-up"></span>
-                                            <span className="max-temp">۳۴</span>
+                                            <span className="max-temp">{Math.round(dailyData.data.weatherData.highestTemp)}</span>
                                         </div>
                                     </div>
                                 </div>

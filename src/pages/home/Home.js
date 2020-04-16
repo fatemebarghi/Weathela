@@ -6,27 +6,14 @@ import Location from './../../components/location/Location';
 import WeatherIcon from './../../components/weatherIcon/WeatherIcon';
 import City from '../../components/city/City';
 import WeatherTitle from '../../components/weatherTitle/WeatherTitle';
-import  persianDate  from 'persian-date';
+import Date from './../../components/date/Date';
+import Carousel from './../../components/carousel/Carousel';
 
 function Home() {
 
-    // NOTE: I've added this function and a button to test the api call to the server. It can be deleted
-
-    // const apiCall = (e) => {
-    //     e.preventDefault();
-    //     const axios = require('axios');
-    //     console.log("clicked");
-    //     axios.get("/data")
-    //         .then((result) => {
-    //             console.log(result);
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         });
-    // };
-
     const [dailyData, setDailyData] = useState(null);
     const [location, setLocation] = useState(JSON.parse(localStorage.getItem("location")));
+    const [addToFavourite, setAddToFavourite] = useState(false);
 
     useEffect (() => {
         if(location) {
@@ -47,6 +34,31 @@ function Home() {
         setLocation({latitude: result.latitude, longitude: result.longitude});
    };
 
+   const handleFavourites = () => {
+       setAddToFavourite(!addToFavourite);
+       if(!addToFavourite){
+            let favLocations = localStorage.getItem("favLocations");
+            if(!favLocations){
+                let x=[];
+                x.push(location);
+                console.log(x);
+                localStorage.setItem( 'favLocations', JSON.stringify(x));
+            }
+            else {
+                console.log("add");
+                let x = JSON.parse(localStorage.getItem("favLocations"));
+                x.push(location);
+                localStorage.setItem( 'favLocations', JSON.stringify(x));
+            }
+       }
+       else {
+           console.log("delte")
+            let x = JSON.parse(localStorage.getItem("favLocations"));
+            x.splice(location, 1);
+            localStorage.setItem( 'favLocations', JSON.stringify(x));
+       }
+   }
+
     return (
         <DailyDataContext.Provider value={{dailyData, setDailyData}}>
             <React.Fragment>
@@ -63,14 +75,13 @@ function Home() {
                                             </g>
                                         </g>
                                     </svg>
-                                    <ToggleStar/>
+                                    <ToggleStar onClick={handleFavourites} active={addToFavourite}/>
                                     <WeatherIcon weather={dailyData.data.weatherData.icon}/>
                                     <City province={dailyData.data.locationData.province}/>
                                     <div className="info">
                                         <span className="city-name">{dailyData.data.locationData.county}</span>
                                         <div className="date">
-                                            <span className="day">سه‌شنبه</span>
-                                            <span className="month"></span>
+                                            <Date time={dailyData.data.weatherData.time}/>
                                         </div>
                                         <div className="weather">
                                             <WeatherTitle title={dailyData.data.weatherData.icon}/>
@@ -80,6 +91,7 @@ function Home() {
                                             <span className="max-temp">{Math.round(dailyData.data.weatherData.highestTemp)}</span>
                                         </div>
                                     </div>
+                                    <Carousel temps={Math.round(dailyData.data.weatherData.temperature)}/>
                                 </div>
                                 :
                                 <div>LOADING...</div>

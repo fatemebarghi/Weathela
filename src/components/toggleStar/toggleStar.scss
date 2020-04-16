@@ -9,6 +9,8 @@
     margin-right: 40px;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 2;
     svg {
         width: 42px;
     }

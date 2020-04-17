@@ -50,15 +50,39 @@ apiRouter.get("/location", function (req, res) {
                 res.status(500).send(error);
             })
     }
-    // axios.get('https://api.darksky.net/forecast/'+process.env.DARK_SKY_KEY+'/37.8267,-122.4233')
-    //     .then((result) => {
-    //         console.log(result);
-    //         res.send(result.data);
-    //     })
-    //     .catch((error) => {
-    //         res.status(500).send(error);
-    //     });
-   // res.send(jsonData);
+});
+
+apiRouter.post("/search", function (req, res) {
+    console.log(req.body.text);
+    var text = req.body.text;
+    var config = {
+        headers : {
+            'x-api-key': process.env.MAP_KEY,
+            'Content-Type': 'application/json'
+        }
+    };
+    var input = {
+        text: text,
+        "$select": "county, city"
+    };
+    axios.post(process.env.MAP_URL + "/search/v2", input, config)
+        .then(function (result) {
+            var data = result.data.value;
+            var newData = [];
+            for(var i=0; i<data.length; i++){
+                newData.push({
+                    city: data[i].city,
+                    county: data[i].county,
+                    province: data[i].province,
+                    location: {lat: data[i].geom.coordinates[0], long: data[i].geom.coordinates[1]}
+                });
+            }
+            res.send(newData);
+        })
+        .catch(function (error) {
+            console.log(error);
+            res.status(500).send(error);
+        });
 });
 
 module.exports = apiRouter;

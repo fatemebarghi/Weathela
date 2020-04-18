@@ -1,8 +1,18 @@
+@import "../../style/main.scss";
+
 .carousel {
     z-index: 2;
     position: relative;
     text-align: center;
-    top: 36px;
+    top: 55px;
     font-size: 55px;
-    height: 112px;
+    color: $secondary-blue;
+    &::after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 1px solid $secondary-blue;
+    }
 }

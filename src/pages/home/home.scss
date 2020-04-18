@@ -12,14 +12,13 @@
         z-index: 1;
     }
 
-    .weather-pic {
-        padding: 35px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        img {
-            width: 95px;
+    .weather-icon-wrapper {
+        position: absolute;
+        top: 30px;
+        left:30px;
+        svg {
+            width: 90px;
+            height: 90px;
         }
     }
 
@@ -29,10 +28,10 @@
         position: absolute;
         z-index: 1;
         width: 100%;
-        bottom: 30%;
+        bottom: 28%;
 
         .city-name {
-            color: $second-text-color;
+            color: $secondary-blue;
             font-size: 38px;
             font-weight: 600;
         }

@@ -1,0 +1,48 @@
+@import "../../style//main.scss";
+
+.favourite-page {
+    width: 100%;
+    height: 100vh;
+    background-color: $primary-blue;
+    position: absolute;
+    .card {
+        height: 80px;
+        margin: 16px;
+        box-shadow: $box-shadow;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-around;
+        background-color: $white;
+        .weather-icon {
+            display: contents;
+
+            svg {
+                width: 65px;
+                height: 80px;
+            }
+        }
+
+        .city-title {
+            font-size: 22px;
+        }
+
+        .temp {
+            font-size: 22px;
+        }
+
+        .weather {
+
+            .icon-up,
+            .icon-down {
+                float: right;
+            }
+
+            .min-temp,
+            .max-temp {
+                font-size: 18px;
+            }
+        }
+    }
+}

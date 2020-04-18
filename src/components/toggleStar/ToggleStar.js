@@ -7,14 +7,13 @@ function ToggleStar(props) {
     let location = props.location;
 
     useEffect(() => {
-        // let x = JSON.parse(localStorage.getItem("favLocations")).splice(location,1);
-        if(localStorage.getItem("favLocations")) {
-            // setAddToFavourite(addToFavourite === true);
-            // console.log('useffect togglestar',JSON.parse(localStorage.getItem("favLocations")).splice(location,1));
-            console.log("hiii");
+        let x = JSON.parse(localStorage.getItem("favLocations"));
+        for (let key in x){
+            if (x[key].latitude === location.latitude && x[key].longitude === location.longitude) {
+                setAddToFavourite(true);
+            }
         }
-        
-    });
+    },[]);
 
     const handleFavourites = () => {
         setAddToFavourite(!addToFavourite);

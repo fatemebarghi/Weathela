@@ -7,9 +7,9 @@ function Search() {
         <div className="search-page">
             <div className="search-bar">
                 <input  type="text" placeholder="نام شهر موردنظر خود را وارد کنید..."></input>
-                <div className="button">
+                <button className="button">
                     <SearchIcon/>
-                </div>
+                </button>
             </div>
             <div className="result-wrapper">
             <div className="result">

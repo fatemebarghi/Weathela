@@ -1,0 +1,11 @@
+@import "../../style//main.scss";
+
+.card {
+    box-shadow: $box-shadow;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $white;
+}

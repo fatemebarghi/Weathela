@@ -5,16 +5,11 @@
     height: 100vh;
     background-color: $primary-blue;
     position: absolute;
+
     .card {
         height: 80px;
         margin: 16px;
-        box-shadow: $box-shadow;
-        border-radius: 12px;
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: space-around;
-        background-color: $white;
+
         .weather-icon {
             display: contents;
 
@@ -44,5 +39,13 @@
                 font-size: 18px;
             }
         }
+    }
+
+    .no-item {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
     }
 }

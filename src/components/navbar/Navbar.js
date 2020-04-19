@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {PageContext} from '../../store/PageContext';
-import {useContext} from "react";
 import "./navbar.scss";
 
 function Navbar() {

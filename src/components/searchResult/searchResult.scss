@@ -1,0 +1,28 @@
+@import "../../style/main.scss";
+
+.result {
+    width: 63%;
+    margin: 0 auto;
+    direction: rtl;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-bottom: 1px solid $border-color;
+    height: 70px;
+
+    .city {
+        display: block;
+        margin: 0;
+    }
+
+    .county,
+    .province {
+        margin-left: 4px
+    }
+
+    .city,
+    .county,
+    .province {
+        line-height: 30px;
+    }
+}

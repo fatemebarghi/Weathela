@@ -29,8 +29,8 @@ function Favourite() {
             {
                 favLocation.length !==0 ?
                     favData ?
-                        favData.map( data => (
-                            <FavCard data={data}/>
+                        favData.map((data, index) => (
+                            <FavCard data={data} key={index}/>
                         ))
                     :<div>LOADING....</div>
                 : <span className="no-item">هیچ موردی یافت نشد</span>

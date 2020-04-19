@@ -5,12 +5,17 @@
     height: 100vh;
     background-color: $primary-blue;
     position: absolute;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 
     .search-bar {
         text-align: center;
-        position: relative;
+        position: fixed;
+        width: 100%;
         font-family: IranSans;
-        margin: 30px 0;
+        padding: 30px 0;
+        background-color: $primary-blue;
+        z-index: 1;
 
         input {
             width: 80%;
@@ -32,39 +37,22 @@
         border-radius: 12px 0 0 12px;
         position: absolute;
         left: 20px;
-        top: 1px;
         background-color: $gray;
         width: 45px;
         height: 48px;
         padding: 0;
         border: 2px solid white;
+        outline: none;
 
         svg {
             width: 40px;
             height: 100%;
         }
     }
+
     .result-wrapper {
-        
-        .result {
-            width: 63%;
-            margin: 0 auto;
-            direction: rtl;
-            box-sizing: border-box;
-            padding: 5px 10px;
-            font-size: 14px;
-            border-bottom: 1px solid $border-color;
-            .city {
-                display: block;
-                margin: 0;
-            }
-            .county, .province{
-                margin-left: 4px
-            }
-            .city, .county, .province {
-                line-height: 30px;
-            }
-        }
+        margin-top: 110px;
+        margin-bottom: 64px;
     }
-    
+
 }

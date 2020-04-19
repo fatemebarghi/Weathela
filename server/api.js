@@ -74,7 +74,7 @@ apiRouter.post("/search", function (req, res) {
                     city: data[i].city,
                     county: data[i].county,
                     province: data[i].province,
-                    location: {lat: data[i].geom.coordinates[0], long: data[i].geom.coordinates[1]}
+                    location: {latitude: data[i].geom.coordinates[0], longitude: data[i].geom.coordinates[1]}
                 });
             }
             res.send(newData);

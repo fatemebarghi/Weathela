@@ -6,7 +6,7 @@ function FavCard (props) {
     
     return(
         <div className="card">
-            {console.log('props',props.data)}
+            {console.log('props in fav card',props.data)}
             <div className="weather-icon">
                 <WeatherIcon weather={props.data.weatherData.icon}/>
             </div>

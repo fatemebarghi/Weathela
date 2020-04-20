@@ -5,9 +5,11 @@ import "./favourite.scss";
 function Favourite() {
 
     const [favData, setFavData] = useState(null);
-    const favLocation = JSON.parse(localStorage.getItem("favLocations"));
+    const favLocation = localStorage.getItem("favLocations") ? JSON.parse(localStorage.getItem("favLocations")) : [];
 
     useEffect( () => {
+
+        let arrLocations= [];
         if (favLocation.length !==0) {
             for(let key in favLocation) {
                 console.log("fav", favLocation[key]);
@@ -15,12 +17,16 @@ function Favourite() {
                 axios.get(`/api/location?lat=${favLocation[key].latitude}&long=${favLocation[key].longitude}`)
                 .then( response => {
                     console.log("in the favourite",response.data);
-                    setFavData([{weatherData:response.data.weatherData, locationData: response.data.locationData}]);
+                    arrLocations.push(response.data);
+                    console.log("arrLocations",arrLocations);
                 })
                 .catch( error => {
                     console.log(error);
                 })
             }
+        }
+        if (!favData) {
+            setFavData(arrLocations);
         }
     },[])
 
@@ -28,10 +34,13 @@ function Favourite() {
         <div className="favourite-page">
             {
                 favLocation.length !==0 ?
+                    
                     favData ?
-                        favData.map((data, index) => (
-                            <FavCard data={data} key={index}/>
-                        ))
+                        console.log("favdata", favData)
+                        // favData.map((data, index) => (
+                        //     console.log("dataaa", data),
+                        //     <FavCard data={data} key={index}/>
+                        // ))
                     :<div>LOADING....</div>
                 : <span className="no-item">هیچ موردی یافت نشد</span>
             }

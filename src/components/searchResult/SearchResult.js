@@ -7,6 +7,8 @@ function SearchResult (props) {
     const {page, setPage} = useContext(PageContext);
 
     const handleClick = (location) => {
+        console.log("location search result", location);
+        setPage({number: 0});
         localStorage.setItem("location", JSON.stringify(location));
     }
 

@@ -5,13 +5,10 @@ var apiRouter = require("./api");
 var port = process.env.PORT || 3001;
 
 
-// app.use(express.static('build'));
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(bodyParser.json());
-// app.use('/api/', apiRouter);
-app.get('/', function (req, res) {
-res.send(JSON.stringify({ Hello: 'World'}));
-});
+app.use(express.static('build'));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use('/api/', apiRouter);
 
 
 app.listen(port, function () {

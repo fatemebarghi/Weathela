@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var apiRouter = require("./api");
+var port = process.env.PORT || 3001;
 
 
 // app.use(express.static('build'));
@@ -13,6 +14,6 @@ res.send(JSON.stringify({ Hello: 'World'}));
 });
 
 
-app.listen(3001, function () {
+app.listen(port, function () {
     console.log("Listening on port 3001");
 });

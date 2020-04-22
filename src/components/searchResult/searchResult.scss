@@ -6,13 +6,18 @@
     direction: rtl;
     box-sizing: border-box;
     padding: 5px 10px;
-    font-size: 14px;
-    border-bottom: 1px solid $border-color;
+    font-size: 13px;
     height: 70px;
+    background: $white;
+    box-shadow: $box-shadow;
+    margin-bottom: 12px;
+    border-radius: 12px;
 
     .city {
         display: block;
         margin: 0;
+        font-size: 17px;
+        font-weight: bold;
     }
 
     .county,

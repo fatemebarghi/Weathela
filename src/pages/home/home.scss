@@ -6,16 +6,11 @@
     height: 100vh;
     background-color: $primary-blue;
 
-    .wave {
-        position: absolute;
-        bottom: 0;
-        z-index: 1;
-    }
-
     .weather-icon-wrapper {
         position: absolute;
         top: 30px;
-        left:30px;
+        left: 30px;
+
         svg {
             width: 90px;
             height: 90px;
@@ -28,7 +23,19 @@
         position: absolute;
         z-index: 1;
         width: 100%;
-        bottom: 28%;
+        height: 44%;
+        bottom: 56px;
+        padding-top: 70px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            z-index: -1;
+        }
 
         .city-name {
             color: $secondary-blue;
@@ -58,6 +65,9 @@
                     height: 16px;
                     background-color: $border-color;
                 }
+            }
+            .carousel {
+                margin-top: 15px;
             }
         }
 

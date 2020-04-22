@@ -31,10 +31,10 @@ function FavCard (props) {
             {favResult ?
                 <React.Fragment>
                     <div className="weather-icon">
-                    <WeatherIcon weather={favResult.weatherData.icon}/>
+                        <WeatherIcon weather={favResult.weatherData.icon}/>
                     </div>
-                    <span className="city-title">{favResult.locationData.county || favResult.locationData.city}</span>
-                    <span className="temp">{Math.round(favResult.weatherData.temperature)}</span>
+                    <div className="city-title">{favResult.locationData.county || favResult.locationData.city}</div>
+                    <div className="temp">{Math.round(favResult.weatherData.temperature)}</div>
                     <div className="weather">
                         <div>
                             <span className="icon-down"></span>

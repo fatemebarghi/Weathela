@@ -4,14 +4,14 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     border-top: 1px solid $border-color;
     margin: 0;
     list-style: none;
     padding: 0;
-    z-index: 2;
     background-color: $white;
+    height: 55px;
     .icon {
         svg {
             width: 55px;

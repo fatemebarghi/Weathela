@@ -5,10 +5,15 @@
     height: 100vh;
     background-color: $primary-blue;
     position: absolute;
+    overflow: scroll;
+    scroll-behavior: smooth;
 
     .card {
         height: 80px;
         margin: 16px;
+        &:last-of-type {
+            margin-bottom: 76px;
+        }
 
         .weather-icon {
             display: contents;
@@ -20,11 +25,12 @@
         }
 
         .city-title {
-            font-size: 22px;
+            font-size: 19px;
+            font-weight: bold;
         }
 
         .temp {
-            font-size: 22px;
+            font-size: 20px;
         }
 
         .weather {

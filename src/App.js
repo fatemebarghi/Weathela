@@ -21,10 +21,10 @@ function App() {
         return(
           <Favourite/>
         );
-      case 2:
-        return(
-          <Setting/>
-        );
+      // case 2:
+      //   return(
+      //     <Setting/>
+      //   );
       case 3:
         return(
           <Search/>

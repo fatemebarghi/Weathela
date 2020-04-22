@@ -1,12 +1,9 @@
 @import "../../style/main.scss";
 
 .carousel {
-    z-index: 2;
-    position: relative;
-    text-align: center;
-    top: 55px;
     font-size: 55px;
     color: $secondary-blue;
+    margin-top: 15px;
     &::after {
         content: '';
         position: absolute;

@@ -8,4 +8,17 @@
     align-items: center;
     justify-content: space-around;
     background-color: $white;
+    padding: 0 15px;
+
+    .city-title {
+        width: 35%;
+        text-align: center;
+    }
+    .temp {
+        width: 10%;
+    }
+    .weather {
+        width: 15%;
+
+    }
 }

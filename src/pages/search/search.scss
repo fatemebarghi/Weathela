@@ -39,10 +39,10 @@
         left: 20px;
         background-color: $gray;
         width: 45px;
-        height: 48px;
+        height: 49px;
         padding: 0;
-        border: 2px solid white;
         outline: none;
+        border-style: none;
 
         svg {
             width: 40px;
@@ -52,7 +52,7 @@
 
     .result-wrapper {
         margin-top: 110px;
-        margin-bottom: 64px;
+        margin-bottom: 75px;
     }
 
 }

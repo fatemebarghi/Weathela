@@ -66,7 +66,7 @@ function City(props) {
     }
 
     return (
-        <div className="city">
+        <div className="city-vector">
             {GenerateCity[props.province]}
         </div>
     )

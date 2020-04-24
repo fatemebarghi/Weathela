@@ -33,7 +33,7 @@ function FavCard (props) {
                     <div className="weather-icon">
                         <WeatherIcon weather={favResult.weatherData.icon}/>
                     </div>
-                    <div className="city-title">{favResult.locationData.county || favResult.locationData.city}</div>
+                    <div className="city-title">{favResult.locationData.city || favResult.locationData.county}</div>
                     <div className="temp">{Math.round(favResult.weatherData.temperature)}</div>
                     <div className="weather">
                         <div>

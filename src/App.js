@@ -5,6 +5,7 @@ import Setting from './pages/setting/Setting';
 import Search from './pages/search/Search';
 import { PageContext } from './store/PageContext';
 import Navbar from './components/navbar/Navbar';
+import PageView from './components/PageView/PageView';
 import "./style/main.scss";
 
 function App() {
@@ -34,12 +35,12 @@ function App() {
 
   return (
     <PageContext.Provider value={{page, setPage}}>
-      <React.Fragment>
+      <PageView>
         {
             generatePage(page)
         }
         <Navbar/>
-      </React.Fragment>
+      </PageView>
     </PageContext.Provider>
   );
 }

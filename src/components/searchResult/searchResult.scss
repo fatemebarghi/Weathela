@@ -1,8 +1,6 @@
 @import "../../style/main.scss";
 
 .result {
-    width: 63%;
-    margin: 0 auto;
     direction: rtl;
     box-sizing: border-box;
     padding: 5px 10px;
@@ -10,7 +8,7 @@
     height: 70px;
     background: $white;
     box-shadow: $box-shadow;
-    margin-bottom: 12px;
+    margin: 16px;
     border-radius: 12px;
 
     .city {

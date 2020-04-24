@@ -1,4 +1,4 @@
-@import "../../style//main.scss";
+@import "../../style/main.scss";
 
 .card {
     box-shadow: $box-shadow;
@@ -14,11 +14,12 @@
         width: 35%;
         text-align: center;
     }
+
     .temp {
         width: 10%;
     }
-    .weather {
-        width: 15%;
 
+    .weather {
+        width: 18%;
     }
 }

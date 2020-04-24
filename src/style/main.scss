@@ -2,9 +2,40 @@
 @import "./font-icons.scss";
 @import "./fonts.scss";
 
-body {
+*{
     margin: 0;
-    font-family: IranSans,serif;
-    overflow: hidden;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
     box-sizing: border-box;
+    cursor: default;
+    border: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: IranSans,serif;
+}
+
+body,html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    #root{
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
+}
+
+input, textarea {
+    user-select: text;
 }

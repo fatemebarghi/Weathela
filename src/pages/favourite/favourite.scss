@@ -1,18 +1,14 @@
-@import "../../style//main.scss";
+@import "../../style/main.scss";
 
 .favourite-page {
     width: 100%;
-    height: 100vh;
-    background-color: $primary-blue;
-    position: absolute;
-    overflow: scroll;
-    scroll-behavior: smooth;
 
     .card {
         height: 80px;
         margin: 16px;
+        direction: ltr;
         &:last-of-type {
-            margin-bottom: 76px;
+            margin-bottom: 70px;
         }
 
         .weather-icon {
@@ -38,6 +34,7 @@
             .icon-up,
             .icon-down {
                 float: right;
+                font-size: 18px;
             }
 
             .min-temp,

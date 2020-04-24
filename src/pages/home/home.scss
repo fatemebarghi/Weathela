@@ -3,7 +3,7 @@
 .home-page {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: $primary-blue;
 
     .weather-icon-wrapper {
@@ -12,8 +12,8 @@
         left: 30px;
 
         svg {
-            width: 90px;
-            height: 90px;
+            width: 110px;
+            height: 110px;
         }
     }
 
@@ -24,18 +24,15 @@
         z-index: 1;
         width: 100%;
         height: 44%;
-        bottom: 56px;
-        padding-top: 70px;
+        bottom: 0;
+        padding-top: 55px;
         box-sizing: border-box;
         display: flex;
         justify-content: center;
         flex-direction: column;
-
-        .wave {
-            position: absolute;
-            bottom: 0;
-            z-index: -1;
-        }
+        background: url("../../style/images/wave.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
 
         .city-name {
             color: $secondary-blue;
@@ -78,7 +75,7 @@
             .icon-up,
             .icon-down {
                 text-align: left;
-                font-size: 14px;
+                font-size: 20px;
                 position: relative;
             }
         }

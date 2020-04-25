@@ -9,6 +9,6 @@ function Date (props) {
         </span>
         
     )
-}
+};
 
 export default Date;

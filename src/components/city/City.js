@@ -63,13 +63,13 @@ function City(props) {
         "هرمزگان": <Hormozgan/>,
         "همدان": <Hamedan/>,
         "یزد": <Yazd/>
-    }
+    };
 
     return (
         <div className="city-vector">
             {GenerateCity[props.province]}
         </div>
     )
-}
+};
 
 export default City;

@@ -13,11 +13,11 @@ function WeatherTitle(props) {
         "snow":"برفی",
         "sleet":"برف و باران",
         "wind":"وزش باد",
-    }
+    };
 
     return(
         <span className="title">{WeatherState[props.title]}</span>
     )
-}
+};
 
 export default WeatherTitle;

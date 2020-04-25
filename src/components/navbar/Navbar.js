@@ -9,7 +9,7 @@ function Navbar() {
 
 	const handleClick = (pageNumber) => {
 		setPage({number: pageNumber});
-	}
+	};
 
     return(
 			<ul className="navbar" >
@@ -27,6 +27,6 @@ function Navbar() {
             	</li> */}
         	</ul>
     )
-}
+};
 
 export default Navbar;

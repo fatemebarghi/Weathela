@@ -22,6 +22,6 @@ function Location(props) {
             <button className="button" onClick={getLocation}>شروع</button>
         </div>
     )
-}
+};
 
 export default Location;

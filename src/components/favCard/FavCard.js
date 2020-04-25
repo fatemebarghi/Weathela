@@ -18,13 +18,13 @@ function FavCard (props) {
         .catch( error => {
             console.log(error);
         })
-    },[])
+    },[]);
 
     const handleClick = (location) => {
         console.log("hiii", location)
         setPage({number: 0});
         localStorage.setItem("location", JSON.stringify(location));
-    }
+    };
     
     return (
         <div className="card" onClick={() => handleClick(props.data)}>
@@ -34,15 +34,15 @@ function FavCard (props) {
                         <WeatherIcon weather={favResult.weatherData.icon}/>
                     </div>
                     <div className="city-title">{favResult.locationData.city || favResult.locationData.county}</div>
-                    <div className="temp">{Math.round(favResult.weatherData.temperature)}</div>
+                    <div className="temp">{props.toPersianDigits(Math.round(favResult.weatherData.temperature).toString())}</div>
                     <div className="weather">
                         <div>
                             <span className="icon-down"></span>
-                            <span className="min-temp">{Math.round(favResult.weatherData.lowestTemp)}</span>
+                            <span className="min-temp">{props.toPersianDigits(Math.round(favResult.weatherData.lowestTemp).toString())}</span>
                         </div>
                         <div>
                             <span className="icon-up"></span>
-                            <span className="max-temp">{Math.round(favResult.weatherData.highestTemp)}</span>
+                            <span className="max-temp">{props.toPersianDigits(Math.round(favResult.weatherData.highestTemp).toString())}</span>
                         </div>
                     </div>
                 </React.Fragment>
@@ -50,6 +50,6 @@ function FavCard (props) {
             }
         </div>
     )                
-}
+};
 
 export default FavCard;

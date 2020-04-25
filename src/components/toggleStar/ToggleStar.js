@@ -34,10 +34,10 @@ function ToggleStar(props) {
                    index = key;
             }
             favLocationsArr.splice(index, 1);
-        }
+        };
         
         localStorage.setItem( 'favLocations', JSON.stringify(favLocationsArr));
-    }
+    };
     
     return (
         <div className="wrapper" onClick={handleFavourites}>
@@ -49,6 +49,6 @@ function ToggleStar(props) {
             }
         </div>
     )
-}
+};
 
 export default ToggleStar;

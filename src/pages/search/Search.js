@@ -8,9 +8,9 @@ function Search() {
     const [searchValue, setSearchValue] = useState({text:""});
     const [result, setResult] = useState(null);
 
-    const handleUpadate = (e) => {
+    const handleUpdate = (e) => {
         setSearchValue({text: e.target.value});
-    }
+    };
 
     const handleClick = () => {
         if (searchValue.text) {
@@ -23,13 +23,13 @@ function Search() {
             .catch( error => {
                 console.log(error);
             });
-        }
-    }
+        };
+    };
 
     return (
         <div className="search-page">
             <div className="search-bar">
-                <input  type="text" value={searchValue.text} onChange={handleUpadate} placeholder="نام شهر موردنظر خود را وارد کنید..."></input>
+                <input  type="text" value={searchValue.text} onChange={handleUpdate} placeholder="نام شهر موردنظر خود را وارد کنید..."></input>
                 <button className="button" onClick={handleClick}>
                     <SearchIcon/>
                 </button>
@@ -48,6 +48,6 @@ function Search() {
             
         </div>
     )
-}
+};
 
 export default Search;

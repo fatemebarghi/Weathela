@@ -3,13 +3,19 @@
 .carousel {
     font-size: 55px;
     color: $secondary-blue;
-    margin-top: 15px;
-    &::after {
-        content: '';
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        border: 1px solid $secondary-blue;
+    margin-top: 8px;
+    .temp {
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid $secondary-blue;
+            right: -17px;
+            top: 4px;
+        }
     }
+    
 }

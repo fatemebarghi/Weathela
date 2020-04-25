@@ -6,6 +6,6 @@ function Setting() {
             <h1>this is the Setting page</h1>
         </div>
     )
-}
+};
 
 export default Setting;

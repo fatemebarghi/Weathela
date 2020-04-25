@@ -10,7 +10,7 @@ function SearchResult (props) {
         console.log("location search result", location);
         setPage({number: 0});
         localStorage.setItem("location", JSON.stringify(location));
-    }
+    };
 
     return(
         <div className="result" onClick={() => handleClick(props.data.location)}>
@@ -20,6 +20,6 @@ function SearchResult (props) {
             <span className="province">{props.data.province}</span>
         </div>
     )
-}
+};
 
 export default SearchResult;

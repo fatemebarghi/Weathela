@@ -9,7 +9,7 @@ import WeatherTitle from '../../components/weatherTitle/WeatherTitle';
 import Date from './../../components/date/Date';
 import Carousel from './../../components/carousel/Carousel';
 
-function Home() {
+function Home(props) {
 
     const [dailyData, setDailyData] = useState(null);
     const [location, setLocation] = useState(JSON.parse(localStorage.getItem("location")));
@@ -25,7 +25,7 @@ function Home() {
             })
             .catch( error => {
                 console.log(error);
-            })
+            });
         }
     },[location]);
  
@@ -54,11 +54,11 @@ function Home() {
                                         <div className="weather">
                                             <WeatherTitle title={dailyData.data.weatherData.icon}/>
                                             <span className="icon-down"></span>
-                                            <span className="min-temp">{Math.round(dailyData.data.weatherData.lowestTemp)}</span>
+                                            <span className="min-temp">{props.toPersianDigits(Math.round(dailyData.data.weatherData.lowestTemp).toString())}</span>
                                             <span className="icon-up"></span>
-                                            <span className="max-temp">{Math.round(dailyData.data.weatherData.highestTemp)}</span>
+                                            <span className="max-temp">{props.toPersianDigits(Math.round(dailyData.data.weatherData.highestTemp).toString())}</span>
                                         </div>
-                                        <Carousel temps={Math.round(dailyData.data.weatherData.temperature)}/>
+                                        <Carousel temps={props.toPersianDigits(Math.round(dailyData.data.weatherData.temperature).toString())}/>
                                     </div>
                                 </div>
                                 :
@@ -68,6 +68,7 @@ function Home() {
             </React.Fragment>
         </DailyDataContext.Provider>
     )
-}
+};
 
 export default Home;
+

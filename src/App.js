@@ -16,11 +16,11 @@ function App() {
     switch (page.number){
       case 0:
         return(
-          <Home/>
+          <Home toPersianDigits={toPersianDigits}/>
         );
       case 1:
         return(
-          <Favourite/>
+          <Favourite toPersianDigits={toPersianDigits}/>
         );
       // case 2:
       //   return(
@@ -31,6 +31,13 @@ function App() {
           <Search/>
         );
     }
+  }
+
+  const toPersianDigits= (number) => {
+    let id = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    return number.replace(/[0-9]/g, function (w) {
+        return id[+w]
+    });
   }
 
   return (

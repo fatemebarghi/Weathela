@@ -1,68 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Weathela - Weather PWA
 
-## Available Scripts
+#### Description
 
-In the project directory, you can run:
+Weathela is a Weather Web Application which is named based on a combination of my profile name, Fadela and the word Weather.
 
-### `npm start`
+It is written with React.Js on Front-End side (using [create-react-app]) and ExpressJs and Node on Back-End side.
+ 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Installation and Setup Instructions
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+###### You need to add 4 environment varibales in order to run this application (Needed in Backend Side):
+  - WEATHER_URL: Which is the URL of a weather web service
+  - WEATHER_KEY: Which is the secret key of weather web service
+  - MAP_URL: Which is the URL of a map web service 
+  - MAP_KEY: Which is the secret key of map web service
 
-### `npm run build`
+#### How to run  
+With `node` and `npm` installed, run the following commands in order:  
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Installing Dependencies:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+`npm install`  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To Run both Client and Server in Development mode:  
 
-### `npm run eject`
+`npm run start:dev`  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To Visit the running App:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`localhost:3000`  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To Start the Server only:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`npm start`  
 
-## Learn More
+To Build the Client only:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`npm run build`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Please note that you should *first build the Client application* and *then Run The Server Only* in your server

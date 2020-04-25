@@ -8,7 +8,7 @@ const PageView = (props) => {
                 {props.children}
             </div>
         </React.Fragment>
-    );
+    )
 };
 
 export default PageView;

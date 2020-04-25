@@ -4,9 +4,11 @@ import "./carousel.scss";
 function Carousel(props) {
     return (
         <div className="carousel">
-            {props.temps}
+            <span className="temp">
+                {props.temps}
+            </span>
         </div>
     )
-}
+};
 
 export default Carousel;

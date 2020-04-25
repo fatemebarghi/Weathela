@@ -1,3 +1,3 @@
 import { createContext } from 'react';
 
-export const DailyDataContext = createContext({})
+export const DailyDataContext = createContext({});

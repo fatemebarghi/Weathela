@@ -1,0 +1,43 @@
+@import "../../style/main";
+
+.desktop-view{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url("../../style/images/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  .desktop-text-view{
+    width: 550px;
+    height: 400px;
+    position: absolute;
+    top: 60%;
+    right: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .logo{
+      width: 200px;
+      height: 100px;
+      background-image: url("../../style/images/logo.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .text{
+      margin-top: 20px;
+      direction: rtl;
+      font-size: 24px;
+      padding-right: 20px;
+    }
+    .sub-text{
+      margin-top: 20px;
+      direction: rtl;
+      font-size: 15px;
+      padding-right: 20px;
+    }
+  }
+}

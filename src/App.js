@@ -7,9 +7,12 @@ import { PageContext } from './store/PageContext';
 import Navbar from './components/navbar/Navbar';
 import PageView from './components/PageView/PageView';
 import "./style/main.scss";
+import Desktop from "./pages/desktop/Desktop";
+import ClientJS from 'clientjs'
 
 function App() {
-
+  const client = new ClientJS();
+  console.log(client.getDevice());
   const [page, setPage]= useState({number:0});
 
   const generatePage = (page) => {
@@ -31,23 +34,27 @@ function App() {
           <Search/>
         );
     }
-  }
+  };
 
   const toPersianDigits= (number) => {
     let id = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
     return number.replace(/[0-9]/g, function (w) {
         return id[+w]
     });
-  }
+  };
 
   return (
     <PageContext.Provider value={{page, setPage}}>
-      <PageView>
         {
-            generatePage(page)
+            client.getDevice().type !== undefined ?
+                <PageView>
+                    {
+                    generatePage(page)
+                    }
+                    <Navbar/>
+                </PageView> :
+                <Desktop />
         }
-        <Navbar/>
-      </PageView>
     </PageContext.Provider>
   );
 }

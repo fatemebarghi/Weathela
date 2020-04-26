@@ -2,10 +2,12 @@
 
 #### Description
 
-Weathela is a Weather Web Application which is named based on a combination of my profile name, Fadela and the word Weather.
+[Weathela](https://www.weathela.com) is a Weather Web Application which is named based on a combination of my profile name, Fadela and the word Weather.
+
+
+###### Weathela is only available on mobile devices and it may not work properly on Desktop size.
 
 It is written with React.Js on Front-End side (using [create-react-app]) and ExpressJs and Node on Back-End side.
- 
 
 
 ## Installation and Setup Instructions

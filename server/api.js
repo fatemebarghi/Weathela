@@ -32,15 +32,26 @@ apiRouter.get("/location", function (req, res) {
             res.status(500).send(error);
         });
     function getWeatherData() {
-        axios.get(process.env.WEATHER_URL + "/forecast/" + process.env.WEATHER_KEY + "/" + latitude + "," + longtitude + "?exclude=[minutely,hourly,alerts,flags]&units=ca")
+        axios.get(process.env.WEATHER_URL + "/forecast/" + process.env.WEATHER_KEY + "/" + latitude + "," + longtitude + "?exclude=[minutely,alerts,flags]&units=ca")
             .then(function (result) {
-                // console.log(result);
+                // console.log(result.data.hourly.data);
+                var hourlyData = result.data.hourly.data;
+                var newHourlyData = [];
+                for(var i = 0; i < 24; i++){
+                    var hourlyObject = {};
+                    hourlyObject.time = hourlyData[i].time * 1000;
+                    hourlyObject.icon = hourlyData[i].icon;
+                    hourlyObject.temperature = hourlyData[i].temperature;
+                    newHourlyData.push(hourlyObject);
+                }
+                // console.log(newHourlyData);
                 weatherData = {
                     time: result.data.currently.time * 1000,
                     icon: result.data.currently.icon,
                     temperature: result.data.currently.temperature,
                     highestTemp: result.data.daily.data[0].temperatureHigh,
-                    lowestTemp: result.data.daily.data[0].temperatureLow
+                    lowestTemp: result.data.daily.data[0].temperatureLow,
+                    hourly: newHourlyData
                 };
                 // console.log(weatherData)
                 res.send({locationData: locationData, weatherData: weatherData});

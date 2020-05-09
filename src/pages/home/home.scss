@@ -17,7 +17,43 @@
         }
     }
 
-    .info {
+
+
+    .top-info {
+        position: absolute;
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .city-name {
+            color: $secondary-blue;
+            font-size: 44px;
+            font-weight: 600;
+
+        }
+
+        .temprature {
+            color: $secondary-blue;
+            font-size: 44px;
+            font-weight: 600;
+            text-align: center; 
+            margin-top: 15px;
+
+
+            &::before {
+                content: '';
+                position: absolute;
+                right: 12px;
+                width: 10px;
+                height: 10px;
+                background-color: transparent;
+                border-radius: 50%;
+                border: 2px solid $secondary-blue;
+            }
+        }
+    }
+
+    .bottom-info {
         text-align: center;
         font-family: IranSans, serif;
         position: absolute;
@@ -25,24 +61,18 @@
         width: 100%;
         height: 44%;
         bottom: 0;
-        padding-top: 55px;
+        padding-top: 35px;
         box-sizing: border-box;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         flex-direction: column;
         background: url("../../style/images/wave.svg");
         background-repeat: no-repeat;
         background-size: cover;
 
-        .city-name {
-            color: $secondary-blue;
-            font-size: 38px;
-            font-weight: 600;
-        }
-
         .date {
-            font-size: 17px;
-            margin-top: 5px;
+            font-size: 19px;
+            margin-bottom: 8px;
             font-weight: 600;
 
             .day,
@@ -63,13 +93,14 @@
                     background-color: $border-color;
                 }
             }
+
             .carousel {
                 margin-top: 15px;
             }
         }
 
         .weather {
-            font-size: 17px;
+            font-size: 19px;
             font-weight: 600;
 
             .icon-up,

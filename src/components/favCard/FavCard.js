@@ -2,24 +2,29 @@ import React, { useState, useEffect, useContext } from 'react';
 import "./favCard.scss";
 import {PageContext} from '../../store/PageContext';
 import WeatherIcon from './../weatherIcon/WeatherIcon';
+import { useApi } from './../../customHooks/UseApi';
 
 function FavCard (props) {
 
     const [favResult, setFavResult]= useState(null);
     const {page, setPage} = useContext(PageContext);
+    const [response, error] = useApi("GET", `/location?lat=${props.data.latitude}&long=${props.data.longitude}`);
 
     useEffect( () => {
-        const axios = require('axios');
-        axios.get(`/api/location?lat=${props.data.latitude}&long=${props.data.longitude}`)
-        .then( response => {
-            console.log("in the favourite",response.data);
-            setFavResult(response.data);
-        })
-        .catch( error => {
-            console.log(error);
-        })
-    },[]);
-
+        // const axios = require('axios');
+        // axios.get(`/api/location?lat=${props.data.latitude}&long=${props.data.longitude}`)
+        // .then( response => {
+        //     console.log("in the favourite",response.data);
+        //     setFavResult(response.data);
+        // })
+        // .catch( error => {
+        //     console.log(error);
+        // })
+        if(response) {
+            setFavResult(response);
+        }
+    },[favResult, response, error]);
+     
     const handleClick = (location) => {
         console.log("hiii", location)
         setPage({number: 0});

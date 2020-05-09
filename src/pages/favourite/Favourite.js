@@ -4,6 +4,7 @@ import "./favourite.scss";
 
 function Favourite(props) {
 
+    const {toPersianDigits} = props;
     const favLocation = localStorage.getItem("favLocations") ? JSON.parse(localStorage.getItem("favLocations")) : [];
 
     return (
@@ -11,7 +12,7 @@ function Favourite(props) {
             {
                 favLocation.length !==0 ?
                     favLocation.map((locaion, index) => (
-                        <FavCard data={locaion} key={index} toPersianDigits={props.toPersianDigits}/>
+                        <FavCard data={locaion} key={index} toPersianDigits={toPersianDigits}/>
                     ))
                 : <span className="no-item">هیچ موردی یافت نشد</span>
             }

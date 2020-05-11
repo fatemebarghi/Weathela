@@ -8,7 +8,7 @@ function FavCard (props) {
 
     const [favResult, setFavResult]= useState(null);
     const {page, setPage} = useContext(PageContext);
-    const [response, error] = useApi("GET", `/location?lat=${props.data.latitude}&long=${props.data.longitude}`);
+    const [response, error, doFetch] = useApi();
 
     useEffect( () => {
         // const axios = require('axios');
@@ -20,6 +20,9 @@ function FavCard (props) {
         // .catch( error => {
         //     console.log(error);
         // })
+        if(!response) {
+            doFetch("GET", `/location?lat=${props.data.latitude}&long=${props.data.longitude}`);
+        }
         if(response) {
             setFavResult(response);
         }

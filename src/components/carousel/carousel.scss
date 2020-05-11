@@ -4,19 +4,30 @@
     color: $secondary-blue;
     display: flex;
     align-items: center;
-    overflow-x: hidden;
-    overflow-y: auto;
-    overflow: -moz-scrollbars-none;
+    overflow-x: auto;
+    overflow-y: hidden;
     scroll-behavior: smooth;
     direction: ltr;
-    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    &::-webkit-scrollbar {
+        width:  0 !important;
+      }
+    
+      &::-webkit-scrollbar-thumb {
+        background: transparent;
+      }
+    
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
 
     .item {
         position: relative;
         margin: 0 15px;
-        width: 40px;
         height: 105px;
-
+        
         &::before {
             content: '';
             position: absolute;
@@ -26,6 +37,10 @@
             border: 1px solid $secondary-blue;
             right: 0px;
             top: 4px;
+        }
+
+        &:last-child {
+            border-right: 15px solid transparent;
         }
 
         .temp {

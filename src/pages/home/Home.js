@@ -16,7 +16,7 @@ function Home(props) {
 
     const [dailyData, setDailyData] = useState(null);
     const [location, setLocation] = useState(JSON.parse(localStorage.getItem("location")));
-    const [response, error] = useApi("GET", `/location?lat=${location.latitude}&long=${location.longitude}`)
+    const [response, error, doFetch] = useApi();
 
     useEffect (() => {
         // if(location) {
@@ -31,8 +31,13 @@ function Home(props) {
         //         console.log(error);
         //     });
         // }
+        if(location && !response) {
+            doFetch("GET", `/location?lat=${location.latitude}&long=${location.longitude}`);
+        }
         if(response) {
             setDailyData(response);
+            localStorage.setItem('location', JSON.stringify(location));
+            console.log(response);
         }
     },[location, response, error]);
  

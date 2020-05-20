@@ -12,8 +12,6 @@ import { useApi } from './../../customHooks/UseApi';
 
 function Home(props) {
 
-    
-
     const [dailyData, setDailyData] = useState(null);
     const [location, setLocation] = useState(JSON.parse(localStorage.getItem("location")));
     const [response, error, doFetch] = useApi();
@@ -37,7 +35,7 @@ function Home(props) {
         if(response) {
             setDailyData(response);
             localStorage.setItem('location', JSON.stringify(location));
-            console.log(response);
+            console.log("response in the home page",response);
         }
     },[location, response, error]);
  
@@ -75,7 +73,7 @@ function Home(props) {
                                                 <span className="max-temp">{props.toPersianDigits(Math.round(dailyData.weatherData.highestTemp).toString())}</span>
                                             </div>
                                         </div>
-                                        <Carousel temps={props.toPersianDigits(Math.round(dailyData.weatherData.temperature).toString())}/>
+                                        <Carousel hourlyTemp={dailyData.weatherData.hourly} toPersianDigits={props.toPersianDigits}/>
                                     </div>
                                 </div>
                                 :

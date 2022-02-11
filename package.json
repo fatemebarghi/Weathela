@@ -14,7 +14,7 @@
     "express": "^4.17.1",
     "lodash": "^4.17.15",
     "morgan": "^1.10.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "persian-date": "^1.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
